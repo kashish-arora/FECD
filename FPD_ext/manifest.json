@@ -1,0 +1,24 @@
+{
+	"manifest_version": 2,
+	"name": "Explicit Content Detection System Beta",
+	"description": "Detects and block explicit content",
+	"version": "1",
+	"author": "Kashish Arora",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "Finding and blocking explicity content for you!"
+	},
+	"permissions": ["tabs", "activeTab", "http://127.0.0.1:5000/*", "storage"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	
+	"content_scripts": [		
+		{
+      			"matches": ["https://www.youtube.com/watch*"], 
+      			"js": ["js/content-script.js"],
+      			"css" : ["change.css"]
+    		}
+	]
+}
